@@ -1,9 +1,12 @@
 function colorirDia(){
     //Pegar valor de campo de dia
-    let days = document.querySelector('days').value;
+    let days = document.getElementById('days').value;
 
     //Pega o valor do campo da cor
-    let color = document.getElementById('calendar');
+    let color = document.getElementById('color').value;
+
+    //Pega os elementos da tabela calendário
+    let calendar = document.getElementById('calendar');
 
     //Verifica se o campo de dia foi preenchido
     if(!days){
@@ -11,11 +14,11 @@ function colorirDia(){
     }
     else if((days > 0) && (days < 31)){
         // Se o número de dias está no intervalo | Aplicará a cor na célula do calendário
-        let td = calendar.getElementByTagName('td');
+        let td = calendar.getElementsByTagName('td')[parseInt(days)+1];
         td.style.backgroundColor = color;
     }
     else{
-        alert('Favor informar um dia do calendário')
+        alert('Favor informar um dia do calendário');
     }
 
         //Guardar a célula da tabela
@@ -27,7 +30,7 @@ function colorirDia(){
         contadorRosa = 0, 
         contadorRoxo = 0;
 
-        
+
         //Loop para verificar o estilo de cada célula e contar quantas tem cor e qual cor
         for(let i =0; i<elementos.length; i++){
             //Obtém o estilo computado do elemento atual
